@@ -42,5 +42,7 @@ const router = createBrowserRouter([
       path: "*",
       element: <AuthRoute Component={NotFoundPage} />
    }
-]);
+],
+   { basename: '/root_application_mf' } // basename added for github pages
+);
 export const Root = () => <RouterProvider router={router} />;
