@@ -11,7 +11,7 @@ import NotFoundPage from "./ErrorPages/404NotFound";
 
 const router = createBrowserRouter([
    {
-      path: "/",
+      path: "", // blank in case of github pages else "/"
       element: <MainPage />,
    },
    {
