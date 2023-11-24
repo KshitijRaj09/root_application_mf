@@ -14,7 +14,7 @@ module.exports = {
     path: path.resolve(__dirname, "./build"),
     filename: "[name].bundle.js",
     clean: true,
-    publicPath: "/root_application_mf", //due to github pages otherwise "/"
+    publicPath: "/root_application_mf/", //due to github pages otherwise "/"
   },
   target: "web",
   devServer: {
