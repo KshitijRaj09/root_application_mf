@@ -39,6 +39,8 @@ jobs:
       # build the react app
       - name: Build
         run: yarn build:prod
+        env:
+          APIBASEURL: ${{vars.APIBASEURL}}
 
       # deploy the react app to github pages
       - name: Deploy
