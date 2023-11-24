@@ -34,7 +34,6 @@ const drawerWidth = 200;
 type SideMenuBarPropsType = {
    children: JSX.Element;
    setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
-   setSelectedPage: React.Dispatch<React.SetStateAction<PageEnum>>
 };
 
 const StyledLink = styled(Link)(() => ({
@@ -76,7 +75,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 export const SideMenuBar = ({
    children,
    setIsAuthenticated,
-   setSelectedPage
 }: SideMenuBarPropsType) => {
    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
    const location = useLocation();
@@ -165,8 +163,7 @@ export const SideMenuBar = ({
             {/* links/list section */}
             <List>
                {menuItems.map((item) => (
-                  <StyledLink to={item.path} key={item.text} onClick={()=>setSelectedPage(item.text)  
-                  }>
+                  <StyledLink to={item.path} key={item.text}>
                      {item.text === "Logout" ? (
                         <LogoutModalLazy
                            text={item.text}

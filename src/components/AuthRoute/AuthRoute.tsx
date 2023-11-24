@@ -1,12 +1,11 @@
 import React, {useEffect, useState, Suspense} from "react";
 import {SideMenuBar} from "../Homepage/SideMenuBar";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import { getAccessToken } from "../../util";
 import Loader from "../Loaders";
 import { MemosizedSocketInit as SocketInit } from "./SocketInit";
 import { getUserDetailsApi } from "../../apis/getUserDetails";
-import { WindowEvents, default as WindowEventService } from "Sharedlib/eventservice";
-import { PageEnum } from "../../typesdeclarations/type";
+import { WindowEvents } from "Sharedlib/eventservice";
 
 type AuthRouteProps = {
    Component: React.ComponentType;
@@ -15,37 +14,42 @@ type AuthRouteProps = {
 export const AuthRoute = ({Component}: AuthRouteProps) => {
    const navigate = useNavigate();
    const [isAuthenticated, setIsAuthticated] = useState(false);
-   const [selectedPage, setSelectedPage] = useState<PageEnum>(PageEnum.Posts);
+   const [selectedPage, setSelectedPage] = useState<string>('')
    const eventName = 'currentUser' as typeof WindowEvents.currentUser;
-   console.log('process.env.APIBASEURL', process.env.APIBASEURL,);
+   const {pathname} = useLocation();
+   console.log('process.env.APIBASEURL', process.env.APIBASEURL, pathname);
+
    useEffect(() => {
       const userToken = getAccessToken();
       if (!userToken) {
          navigate("/");
       }
-      if (selectedPage === PageEnum.Posts) {
+      if (pathname.includes('homepage')) {
          getUserDetailsHelper();
       }
       setIsAuthticated(true);
    }, [isAuthenticated, selectedPage]);
+
+   useEffect(() => {
+      const pathsplit = pathname.split('/')
+      const currentPath = pathsplit[pathsplit.length - 1];
+      setSelectedPage(currentPath);
+   }, [pathname])
    
    const getUserDetailsHelper = async() => {
       const userInfo = await getUserDetailsApi();
-      console.log({userInfo});
-      
       import("Sharedlib/eventservice").
          then((event) => {
-            event.default.fire(eventName, { detail: userInfo })
+            setTimeout(() => event.default.fire(eventName, { detail: userInfo }), 100);      
          }).catch(error => {
             console.error('Error occured in event', error);
          })
-      console.log('called here ', WindowEventService);
    }
    return (
       <div>
          {isAuthenticated && (
             <>
-               <SideMenuBar setIsAuthenticated={setIsAuthticated} setSelectedPage={setSelectedPage}>
+               <SideMenuBar setIsAuthenticated={setIsAuthticated}>
                   <Suspense fallback={<Loader />}>
                      <Component />
                   </Suspense>
