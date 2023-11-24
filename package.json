@@ -7,11 +7,11 @@
   "author": "Kshitij Raj",
   "license": "ISC",
   "private": true,
-  "homepage": "https://kshitijraj09.github.io/root_application_mf",
+  "homepage": "https://kshitijraj09.github.io/root_application_mf/",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "build:prod": "webpack --node-env=production",
+    "build:prod": "webpack --node-env=production && cp build/index.html build/404.html",
     "test": "echo \"Error: no test specified\""
   },
   "dependencies": {
