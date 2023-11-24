@@ -490,7 +490,7 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__webpack_require__.p = "/root_application_mf";
+/******/ 		__webpack_require__.p = "/root_application_mf/";
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/consumes */
