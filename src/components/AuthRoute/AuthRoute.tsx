@@ -37,7 +37,7 @@ export const AuthRoute = ({Component}: AuthRouteProps) => {
    }, [pathname])
    
    const getUserDetailsHelper = async() => {
-      const userInfo = await getUserDetailsApi();
+      let userInfo = await getUserDetailsApi();
       import("Sharedlib/eventservice").
          then((event) => {
             setTimeout(() => event.default.fire(eventName, { detail: userInfo }), 100);      

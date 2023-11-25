@@ -11,3 +11,20 @@ Webpack@5 has been used as module bundle in this project.
 * [Messenger_mf](https://github.com/KshitijRaj09/messenger_mf)
 * [Account_mf](https://github.com/KshitijRaj09/account_mf)
 * [Sharedlib_mf](https://github.com/KshitijRaj09/sharedlib)
+
+
+### How to run in local
+
+> [!IMPORTANT]
+#### Change below line of code in files to run in local, some configurations are done to run the application in github pages
+* Change `publicPath` in webpack.config.js : ```publicPath : '/' ```.
+* comment react-router-dom `basename` in `Root` file.
+* Change in `Root` file
+   ```
+   {
+      path: "/", // blank in case of github pages else "/"
+      element: <MainPage />,
+   },
+   ```
+* Check `remote-url.js` file and do the changes accroding to your need.
+* Check `scripts` in `package.json` file to run the application.

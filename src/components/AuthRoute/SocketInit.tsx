@@ -36,7 +36,7 @@ const SocketInit = () => {
       }
    }, [])
 
-   return (<>null</>)
+   return (<></>)
 }
 
 export const MemosizedSocketInit = memo(SocketInit);
