@@ -1196,10 +1196,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@kshitijraj09/sharedlib_mf@1.0.6":
-  version "1.0.6"
-  resolved "https://npm.pkg.github.com/download/@kshitijraj09/sharedlib_mf/1.0.6/de9ee004fb698c71396f4a5dcbaf932e0f003f06#de9ee004fb698c71396f4a5dcbaf932e0f003f06"
-  integrity sha512-7I6o9bBjYcbZ9BuVS3kY0cGo7La/S7Sxe+nbfFqEygvarArH8KQAKrxjktScY9cl2adns+dx5Up861ZhANvZ2Q==
+"@kshitijraj09/sharedlib_mf@1.0.7":
+  version "1.0.7"
+  resolved "https://npm.pkg.github.com/download/@kshitijraj09/sharedlib_mf/1.0.7/1ee8985920271945693d73b5c44f96d2e389e0b5#1ee8985920271945693d73b5c44f96d2e389e0b5"
+  integrity sha512-3K/rsSDEVvjEb50nItE/Azwn2zT9RzqjJaJHCaJaJpsnSJ6NVvra9/pN/f/rYNOGMK7YI7JMMD1SHsbUQrhMXQ==
   dependencies:
     "@emotion/react" "^11.10.6"
     "@emotion/styled" "^11.10.6"

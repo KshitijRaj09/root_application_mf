@@ -3,7 +3,7 @@ import {SideMenuBar} from "../Homepage/SideMenuBar";
 import {useLocation, useNavigate} from "react-router-dom";
 import { getAccessToken } from "../../util";
 import Loader from "../Loaders";
-import { MemosizedSocketInit as SocketInit } from "./SocketInit";
+import { MemoizedSocketInit as SocketInit } from "../../Socket/SocketInit";
 import { getUserDetailsApi } from "../../apis/getUserDetails";
 import { WindowEvents } from "Sharedlib/eventservice";
 

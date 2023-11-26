@@ -1,6 +1,7 @@
 import React, { memo, useEffect } from "react";
 import { Socket, io } from "socket.io-client";
-import { getUserInfoFromStorage } from "../../util";
+import { getUserInfoFromStorage } from "../util";
+import { WindowEvents } from "Sharedlib/eventservice";
 
 declare global {
    interface Window {
@@ -12,7 +13,7 @@ const SOCKETIOENDPOINT = process.env.APIBASEURL;
 let socket: Socket = io(SOCKETIOENDPOINT, {
    autoConnect: false
 });
-
+const eventName = 'messageNotification' as typeof WindowEvents.messageNotification;
 const SocketInit = () => {
    const handleSocketConnection = () => {
       console.log('socket init called');
@@ -31,6 +32,15 @@ const SocketInit = () => {
 
    useEffect(() => {
       handleSocketConnection();
+      socket.on('message-notification', (notification) => {
+         console.log('hello notification', notification)
+         import("Sharedlib/eventservice").
+         then((event) => {
+            setTimeout(() => event.default.fire(eventName, { detail: notification }), 100);     
+         }).catch(error => {
+            console.error('Error occured in event', error);
+         })
+      })
       return () => {
          socket.disconnect();
       }
@@ -39,4 +49,4 @@ const SocketInit = () => {
    return (<></>)
 }
 
-export const MemosizedSocketInit = memo(SocketInit);
+export const MemoizedSocketInit = memo(SocketInit);

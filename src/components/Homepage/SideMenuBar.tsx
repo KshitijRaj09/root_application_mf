@@ -29,6 +29,8 @@ const LogoutModalLazy = lazy(() => import("../Login/LogoutModal"));
 import { styled } from "@mui/material/styles";
 import { getUserInfoFromStorage } from "../../util";
 import { PageEnum } from "../../typesdeclarations/type";
+import useNotificationProvider from "../../customHook/useNotificationProvider";
+import { NotificationType, WindowEvents } from "@kshitijraj09/sharedlib_mf";
 
 const drawerWidth = 200;
 type SideMenuBarPropsType = {
@@ -82,7 +84,9 @@ export const SideMenuBar = ({
    const classes = styles();
 
    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-
+   const messageNotification = 'messageNotification' as WindowEvents.messageNotification;
+   const { outputStack: notificationStack } = useNotificationProvider<NotificationType>(messageNotification);
+   
    const menuItems = [
       {
          text: PageEnum.Posts,
@@ -102,7 +106,7 @@ export const SideMenuBar = ({
       {
          text: PageEnum.Messenger,
          icon: (
-            <Badge color="primary" variant="dot">
+            <Badge color="primary" badgeContent={notificationStack.length}>
                <TextsmsOutlinedIcon />
             </Badge>
          ),
