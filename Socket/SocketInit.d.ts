@@ -5,4 +5,4 @@ declare global {
         socket: Socket;
     }
 }
-export declare const MemosizedSocketInit: React.MemoExoticComponent<() => React.JSX.Element>;
+export declare const MemoizedSocketInit: React.MemoExoticComponent<() => React.JSX.Element>;
