@@ -15,7 +15,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("Promise.all(/*! import() */[__webpack_require__.e(\"vendors-node_modules_emotion_cache_dist_emotion-cache_browser_esm_js\"), __webpack_require__.e(\"vendors-node_modules_emotion_memoize_dist_emotion-memoize_esm_js-node_modules_mui_material_ut-f60435\"), __webpack_require__.e(\"vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_Box_Box_js-node_-ee4932\"), __webpack_require__.e(\"vendors-node_modules_mui_icons-material_LockOutlined_js-node_modules_css-loader_dist_runtime_-7ce4c7\"), __webpack_require__.e(\"webpack_sharing_consume_default_react_react\"), __webpack_require__.e(\"webpack_sharing_consume_default_emotion_react_emotion_react\"), __webpack_require__.e(\"webpack_sharing_consume_default_emotion_styled_emotion_styled\"), __webpack_require__.e(\"webpack_sharing_consume_default_react-dom_react-dom\"), __webpack_require__.e(\"src_bootstrap_js\")]).then(__webpack_require__.bind(__webpack_require__, /*! ./bootstrap */ \"./src/bootstrap.js\"));\n\n//# sourceURL=webpack://root-application/./src/index.js?");
+eval("Promise.all(/*! import() */[__webpack_require__.e(\"vendors-node_modules_emotion_cache_dist_emotion-cache_browser_esm_js\"), __webpack_require__.e(\"vendors-node_modules_emotion_memoize_dist_emotion-memoize_esm_js-node_modules_mui_material_ut-f60435\"), __webpack_require__.e(\"vendors-node_modules_mui_material_CircularProgress_CircularProgress_js-node_modules_mui_mater-b4ec9b\"), __webpack_require__.e(\"vendors-node_modules_mui_material_styles_ThemeProvider_js-node_modules_mui_material_utils_index_js\"), __webpack_require__.e(\"vendors-node_modules_mui_icons-material_LockOutlined_js-node_modules_css-loader_dist_runtime_-7ce4c7\"), __webpack_require__.e(\"webpack_sharing_consume_default_react_react\"), __webpack_require__.e(\"webpack_sharing_consume_default_emotion_react_emotion_react\"), __webpack_require__.e(\"webpack_sharing_consume_default_emotion_styled_emotion_styled\"), __webpack_require__.e(\"webpack_sharing_consume_default_react-dom_react-dom\"), __webpack_require__.e(\"src_bootstrap_js\")]).then(__webpack_require__.bind(__webpack_require__, /*! ./bootstrap */ \"./src/bootstrap.js\"));\n\n//# sourceURL=webpack://root-application/./src/index.js?");
 
 /***/ }),
 
@@ -313,9 +313,6 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 	/* webpack/runtime/remotes loading */
 /******/ 	(() => {
 /******/ 		var chunkMapping = {
-/******/ 			"src_bootstrap_js": [
-/******/ 				"webpack/container/remote/Sharedlib/eventservice"
-/******/ 			],
 /******/ 			"webpack_container_remote_Sharedlib_theme": [
 /******/ 				"webpack/container/remote/Sharedlib/theme"
 /******/ 			],
@@ -331,6 +328,9 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 			"webpack_container_remote_People_PeopleDetailPage": [
 /******/ 				"webpack/container/remote/People/PeopleDetailPage"
 /******/ 			],
+/******/ 			"webpack_container_remote_Sharedlib_eventservice": [
+/******/ 				"webpack/container/remote/Sharedlib/eventservice"
+/******/ 			],
 /******/ 			"webpack_container_remote_People_RecommendedPeople": [
 /******/ 				"webpack/container/remote/People/RecommendedPeople"
 /******/ 			],
@@ -339,11 +339,6 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 			]
 /******/ 		};
 /******/ 		var idToExternalAndNameMapping = {
-/******/ 			"webpack/container/remote/Sharedlib/eventservice": [
-/******/ 				"default",
-/******/ 				"./eventservice",
-/******/ 				"webpack/container/reference/Sharedlib"
-/******/ 			],
 /******/ 			"webpack/container/remote/Sharedlib/theme": [
 /******/ 				"default",
 /******/ 				"./theme",
@@ -368,6 +363,11 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 				"default",
 /******/ 				"./PeopleDetailPage",
 /******/ 				"webpack/container/reference/People"
+/******/ 			],
+/******/ 			"webpack/container/remote/Sharedlib/eventservice": [
+/******/ 				"default",
+/******/ 				"./eventservice",
+/******/ 				"webpack/container/reference/Sharedlib"
 /******/ 			],
 /******/ 			"webpack/container/remote/People/RecommendedPeople": [
 /******/ 				"default",
@@ -469,12 +469,14 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 					register("@emotion/react", "11.11.1", () => (Promise.all([__webpack_require__.e("vendors-node_modules_emotion_cache_dist_emotion-cache_browser_esm_js"), __webpack_require__.e("vendors-node_modules_emotion_serialize_dist_emotion-serialize_browser_esm_js-node_modules_emo-1cfd09"), __webpack_require__.e("vendors-node_modules_emotion_react_dist_emotion-react_browser_esm_js"), __webpack_require__.e("webpack_sharing_consume_default_react_react"), __webpack_require__.e("node_modules_emotion_memoize_dist_emotion-memoize_esm_js-node_modules_babel_runtime_helpers_e-7af1aa0")]).then(() => (() => (__webpack_require__(/*! ./node_modules/@emotion/react/dist/emotion-react.browser.esm.js */ "./node_modules/@emotion/react/dist/emotion-react.browser.esm.js"))))));
 /******/ 					register("@emotion/styled", "11.11.0", () => (Promise.all([__webpack_require__.e("vendors-node_modules_emotion_serialize_dist_emotion-serialize_browser_esm_js-node_modules_emo-1cfd09"), __webpack_require__.e("vendors-node_modules_emotion_styled_dist_emotion-styled_browser_esm_js"), __webpack_require__.e("webpack_sharing_consume_default_react_react"), __webpack_require__.e("webpack_sharing_consume_default_emotion_react_emotion_react"), __webpack_require__.e("node_modules_emotion_memoize_dist_emotion-memoize_esm_js-node_modules_babel_runtime_helpers_e-7af1aa1")]).then(() => (() => (__webpack_require__(/*! ./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"))))));
 /******/ 					register("@mui/icons-material", "5.14.15", () => (Promise.all([__webpack_require__.e("vendors-node_modules_emotion_cache_dist_emotion-cache_browser_esm_js"), __webpack_require__.e("vendors-node_modules_emotion_memoize_dist_emotion-memoize_esm_js-node_modules_mui_material_ut-f60435"), __webpack_require__.e("vendors-node_modules_mui_icons-material_esm_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react_react"), __webpack_require__.e("webpack_sharing_consume_default_emotion_react_emotion_react"), __webpack_require__.e("webpack_sharing_consume_default_emotion_styled_emotion_styled")]).then(() => (() => (__webpack_require__(/*! ./node_modules/@mui/icons-material/esm/index.js */ "./node_modules/@mui/icons-material/esm/index.js"))))));
-/******/ 					register("@mui/material", "5.14.15", () => (Promise.all([__webpack_require__.e("vendors-node_modules_emotion_cache_dist_emotion-cache_browser_esm_js"), __webpack_require__.e("vendors-node_modules_emotion_memoize_dist_emotion-memoize_esm_js-node_modules_mui_material_ut-f60435"), __webpack_require__.e("vendors-node_modules_mui_material_Dialog_Dialog_js-node_modules_mui_material_DialogActions_Di-8b6776"), __webpack_require__.e("vendors-node_modules_mui_material_index_js"), __webpack_require__.e("vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_Box_Box_js-node_-ee4932"), __webpack_require__.e("webpack_sharing_consume_default_react_react"), __webpack_require__.e("webpack_sharing_consume_default_emotion_react_emotion_react"), __webpack_require__.e("webpack_sharing_consume_default_emotion_styled_emotion_styled"), __webpack_require__.e("webpack_sharing_consume_default_react-dom_react-dom")]).then(() => (() => (__webpack_require__(/*! ./node_modules/@mui/material/index.js */ "./node_modules/@mui/material/index.js"))))));
+/******/ 					register("@mui/lab", "5.0.0-alpha.150", () => (Promise.all([__webpack_require__.e("vendors-node_modules_emotion_cache_dist_emotion-cache_browser_esm_js"), __webpack_require__.e("vendors-node_modules_mui_base_Portal_Portal_js-node_modules_mui_base_utils_useSlotProps_js-no-996a98"), __webpack_require__.e("vendors-node_modules_mui_material_Alert_Alert_js-node_modules_mui_material_AlertTitle_AlertTi-6db9c4"), __webpack_require__.e("vendors-node_modules_emotion_memoize_dist_emotion-memoize_esm_js-node_modules_mui_material_ut-f60435"), __webpack_require__.e("vendors-node_modules_mui_material_CircularProgress_CircularProgress_js-node_modules_mui_mater-b4ec9b"), __webpack_require__.e("vendors-node_modules_mui_lab_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react_react"), __webpack_require__.e("webpack_sharing_consume_default_emotion_react_emotion_react"), __webpack_require__.e("webpack_sharing_consume_default_emotion_styled_emotion_styled"), __webpack_require__.e("webpack_sharing_consume_default_react-dom_react-dom")]).then(() => (() => (__webpack_require__(/*! ./node_modules/@mui/lab/index.js */ "./node_modules/@mui/lab/index.js"))))));
+/******/ 					register("@mui/material", "5.14.15", () => (Promise.all([__webpack_require__.e("vendors-node_modules_emotion_cache_dist_emotion-cache_browser_esm_js"), __webpack_require__.e("vendors-node_modules_mui_base_Portal_Portal_js-node_modules_mui_base_utils_useSlotProps_js-no-996a98"), __webpack_require__.e("vendors-node_modules_mui_material_Alert_Alert_js-node_modules_mui_material_AlertTitle_AlertTi-6db9c4"), __webpack_require__.e("vendors-node_modules_emotion_memoize_dist_emotion-memoize_esm_js-node_modules_mui_material_ut-f60435"), __webpack_require__.e("vendors-node_modules_mui_material_Dialog_Dialog_js-node_modules_mui_material_DialogActions_Di-8b6776"), __webpack_require__.e("vendors-node_modules_mui_material_CircularProgress_CircularProgress_js-node_modules_mui_mater-b4ec9b"), __webpack_require__.e("vendors-node_modules_mui_material_index_js"), __webpack_require__.e("vendors-node_modules_mui_material_styles_ThemeProvider_js-node_modules_mui_material_utils_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react_react"), __webpack_require__.e("webpack_sharing_consume_default_emotion_react_emotion_react"), __webpack_require__.e("webpack_sharing_consume_default_emotion_styled_emotion_styled"), __webpack_require__.e("webpack_sharing_consume_default_react-dom_react-dom")]).then(() => (() => (__webpack_require__(/*! ./node_modules/@mui/material/index.js */ "./node_modules/@mui/material/index.js"))))));
 /******/ 					register("axios", "1.6.0", () => (__webpack_require__.e("vendors-node_modules_axios_index_js").then(() => (() => (__webpack_require__(/*! ./node_modules/axios/index.js */ "./node_modules/axios/index.js"))))));
 /******/ 					register("react-dom", "18.2.0", () => (Promise.all([__webpack_require__.e("vendors-node_modules_react-dom_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! ./node_modules/react-dom/index.js */ "./node_modules/react-dom/index.js"))))));
 /******/ 					register("react-router-dom", "6.17.0", () => (Promise.all([__webpack_require__.e("vendors-node_modules_react-router-dom_dist_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! ./node_modules/react-router-dom/dist/index.js */ "./node_modules/react-router-dom/dist/index.js"))))));
 /******/ 					register("react", "18.2.0", () => (__webpack_require__.e("node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! ./node_modules/react/index.js */ "./node_modules/react/index.js"))))));
 /******/ 					register("socket.io-client", "4.4.0", () => (__webpack_require__.e("vendors-node_modules_socket_io-client_build_esm_index_js").then(() => (() => (__webpack_require__(/*! ./node_modules/socket.io-client/build/esm/index.js */ "./node_modules/socket.io-client/build/esm/index.js"))))));
+/******/ 					register("zustand", "4.4.7", () => (Promise.all([__webpack_require__.e("webpack_sharing_consume_default_react_react"), __webpack_require__.e("node_modules_zustand_esm_index_mjs-_54da0")]).then(() => (() => (__webpack_require__(/*! ./node_modules/zustand/esm/index.mjs */ "./node_modules/zustand/esm/index.mjs"))))));
 /******/ 					initExternal("webpack/container/reference/Sharedlib");
 /******/ 					initExternal("webpack/container/reference/People");
 /******/ 					initExternal("webpack/container/reference/Messenger");
@@ -636,8 +638,10 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 			"webpack/sharing/consume/default/@emotion/styled/@emotion/styled": () => (loadStrictVersionCheckFallback("default", "@emotion/styled", [1,11,10,6], () => (Promise.all([__webpack_require__.e("vendors-node_modules_emotion_serialize_dist_emotion-serialize_browser_esm_js-node_modules_emo-1cfd09"), __webpack_require__.e("vendors-node_modules_emotion_styled_dist_emotion-styled_browser_esm_js")]).then(() => (() => (__webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js"))))))),
 /******/ 			"webpack/sharing/consume/default/react-dom/react-dom": () => (loadSingletonVersionCheckFallback("default", "react-dom", [1,18,2,0], () => (__webpack_require__.e("vendors-node_modules_react-dom_index_js").then(() => (() => (__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"))))))),
 /******/ 			"webpack/sharing/consume/default/react-router-dom/react-router-dom": () => (loadStrictVersionCheckFallback("default", "react-router-dom", [1,6,10,0], () => (__webpack_require__.e("vendors-node_modules_react-router-dom_dist_index_js").then(() => (() => (__webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js"))))))),
-/******/ 			"webpack/sharing/consume/default/@mui/material/@mui/material": () => (loadStrictVersionCheckFallback("default", "@mui/material", [1,5,12,0], () => (Promise.all([__webpack_require__.e("vendors-node_modules_mui_material_Dialog_Dialog_js-node_modules_mui_material_DialogActions_Di-8b6776"), __webpack_require__.e("vendors-node_modules_mui_material_index_js")]).then(() => (() => (__webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/@mui/material/@mui/material": () => (loadStrictVersionCheckFallback("default", "@mui/material", [1,5,12,0], () => (Promise.all([__webpack_require__.e("vendors-node_modules_mui_base_Portal_Portal_js-node_modules_mui_base_utils_useSlotProps_js-no-996a98"), __webpack_require__.e("vendors-node_modules_mui_material_Alert_Alert_js-node_modules_mui_material_AlertTitle_AlertTi-6db9c4"), __webpack_require__.e("vendors-node_modules_mui_material_Dialog_Dialog_js-node_modules_mui_material_DialogActions_Di-8b6776"), __webpack_require__.e("vendors-node_modules_mui_material_index_js")]).then(() => (() => (__webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/index.js"))))))),
 /******/ 			"webpack/sharing/consume/default/axios/axios": () => (loadStrictVersionCheckFallback("default", "axios", [1,1,3,5], () => (__webpack_require__.e("vendors-node_modules_axios_index_js").then(() => (() => (__webpack_require__(/*! axios */ "./node_modules/axios/index.js"))))))),
+/******/ 			"webpack/sharing/consume/default/zustand/zustand": () => (loadStrictVersionCheckFallback("default", "zustand", [1,4,4,7], () => (__webpack_require__.e("node_modules_zustand_esm_index_mjs-_54da1").then(() => (() => (__webpack_require__(/*! zustand */ "./node_modules/zustand/esm/index.mjs"))))))),
+/******/ 			"webpack/sharing/consume/default/@mui/lab/@mui/lab": () => (loadStrictVersionCheckFallback("default", "@mui/lab", [1,5,0,0,,"alpha",127], () => (Promise.all([__webpack_require__.e("vendors-node_modules_mui_base_Portal_Portal_js-node_modules_mui_base_utils_useSlotProps_js-no-996a98"), __webpack_require__.e("vendors-node_modules_mui_material_Alert_Alert_js-node_modules_mui_material_AlertTitle_AlertTi-6db9c4"), __webpack_require__.e("vendors-node_modules_mui_lab_index_js")]).then(() => (() => (__webpack_require__(/*! @mui/lab */ "./node_modules/@mui/lab/index.js"))))))),
 /******/ 			"webpack/sharing/consume/default/@mui/icons-material/@mui/icons-material": () => (loadStrictVersionCheckFallback("default", "@mui/icons-material", [1,5,11,16], () => (__webpack_require__.e("vendors-node_modules_mui_icons-material_esm_index_js").then(() => (() => (__webpack_require__(/*! @mui/icons-material */ "./node_modules/@mui/icons-material/esm/index.js"))))))),
 /******/ 			"webpack/sharing/consume/default/socket.io-client/socket.io-client": () => (loadStrictVersionCheckFallback("default", "socket.io-client", [1,4,7,2], () => (__webpack_require__.e("vendors-node_modules_socket_io-client_build_esm_index_js").then(() => (() => (__webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/build/esm/index.js")))))))
 /******/ 		};
@@ -659,6 +663,8 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 				"webpack/sharing/consume/default/react-router-dom/react-router-dom",
 /******/ 				"webpack/sharing/consume/default/@mui/material/@mui/material",
 /******/ 				"webpack/sharing/consume/default/axios/axios",
+/******/ 				"webpack/sharing/consume/default/zustand/zustand",
+/******/ 				"webpack/sharing/consume/default/@mui/lab/@mui/lab",
 /******/ 				"webpack/sharing/consume/default/@mui/icons-material/@mui/icons-material",
 /******/ 				"webpack/sharing/consume/default/socket.io-client/socket.io-client"
 /******/ 			]
@@ -712,7 +718,7 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if(!/^webpack_(container_remote_(P(eople_(People(|DetailPage)|RecommendedPeople)|ost_Post)|Account_Account|Messenger_Messenger|Sharedlib_theme)|sharing_consume_default_(emotion_(react_emotion_react|styled_emotion_styled)|react(\-dom_react\-dom|_react)))$/.test(chunkId)) {
+/******/ 						if(!/^webpack_(container_remote_(P(eople_(People(|DetailPage)|RecommendedPeople)|ost_Post)|Sharedlib_(eventservic|them)e|Account_Account|Messenger_Messenger)|sharing_consume_default_(emotion_(react_emotion_react|styled_emotion_styled)|react(\-dom_react\-dom|_react)))$/.test(chunkId)) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);

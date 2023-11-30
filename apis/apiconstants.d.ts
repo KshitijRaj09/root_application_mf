@@ -9,3 +9,4 @@ export declare const followUserAPIUrl = "/follow/followuser";
 export declare const unfollowUserAPIUrl = "/follow/unfollowuser";
 export declare const peopleApiRoute = "/user";
 export declare const getUserDetailsAPIUrl = "/user/getUserDetails";
+export declare const notificationApiRoute = "/notification";

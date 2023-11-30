@@ -25,4 +25,7 @@ export declare const checkNotificationStatus: (message: string, userInfo: {
     avatar: string;
     username: string;
 }) => void;
+export declare const getCurrentPage: () => string;
+export declare const getUserDetailsHelper: () => Promise<void>;
+export declare const fireNotificationEvent: () => void;
 export {};
