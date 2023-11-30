@@ -1,33 +1,31 @@
-import { WindowEvents } from "@kshitijraj09/sharedlib_mf";
-import WindowEventService from "Sharedlib/eventservice";
+import { WindowEvents, WindowEventService } from "@kshitijraj09/sharedlib_mf";
 import { useEffect, useState } from "react";
+import useNotificationStore from "../zustand-config/notificationStore";
 
 const useNotificationProvider = <Type,>(eventName: WindowEvents) => {
-
-   const [detail, setDetail] = useState<Type>();
-   const [loading, setLoading] = useState(true);
-   const [outputStack, setOutputStack] = useState<Type[]>([]);
+   const { notifications, decreaseNotifications } = useNotificationStore();
+   const [eventType, setEventType] = useState<typeof WindowEventService>();
 
    useEffect(() => {
       import("Sharedlib/eventservice").
          then((event) => {
+            setEventType(event.default);
             event.default.subscribe(eventName, updateHandler)
          }).catch(error => {
             console.error('Error occured in event', error);
          })
       return () => {
-         WindowEventService.unsubscribe(eventName, updateHandler)
+         eventType.unsubscribe(eventName, updateHandler)
       }
    }, []);
 
    const updateHandler = (event: Event) => {
       const { detail } = event as CustomEvent;
-      setDetail(detail);
-      setOutputStack((prev) => ([detail, ...prev]));
-      setLoading(false);
+      if (eventName === 'updateNotification') {
+         decreaseNotifications(detail);   
+      }
    }
-
-   return {detail, loading, outputStack}
+   return { notifications }
 }
 
 export default useNotificationProvider;

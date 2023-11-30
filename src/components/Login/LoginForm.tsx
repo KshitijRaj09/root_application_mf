@@ -1,20 +1,17 @@
 import React, {useState, useEffect} from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import MuiLink from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
+import {
+   Avatar, CssBaseline,
+   TextField, FormControlLabel,
+   Checkbox, Link as MuiLink,
+   Grid, Box, Typography,
+   Container
+} from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import {isUserIdExistPropType} from "../../typesdeclarations/type";
 import {loginApi} from "./apis/loginApi";
 import {useNavigate} from "react-router-dom";
 import { EventEmitter, setAccessToken, setUserInfoInStorage } from "../../util";
+import { LoadingButton } from "@mui/lab";
 
 const styles = () => ({
    GridItem: {
@@ -38,10 +35,11 @@ export const LoginForm = ({
 }: isUserIdExistPropType) => {
 
    const [loginError,setLoginError] = useState<loginErrorInterface>({email:"",password:""});
-
+   const [isLoading, setIsLoading] = useState(false);
    const navigate = useNavigate();
    const classes = styles();
    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+      setIsLoading(true);
       event.preventDefault();
       const formData = new FormData(event.currentTarget);
       const formdata = {
@@ -58,7 +56,9 @@ export const LoginForm = ({
             avatar: data.avatar
          });
          navigate("/homepage");
+         return;
       }
+      setIsLoading(false);
    };
 
    useEffect(() => {
@@ -121,13 +121,16 @@ export const LoginForm = ({
                   control={<Checkbox value='remember' color='primary' />}
                   label='Remember me'
                />
-               <Button
+               <LoadingButton
                   type='submit'
                   fullWidth
                   variant='contained'
-                  sx={{mt: 3, mb: 2}}>
+                  sx={{ mt: 3, mb: 2 }}
+                  loading={isLoading}
+                  loadingPosition="center"
+               >
                   Sign In
-               </Button>
+               </LoadingButton>
                <Grid container>
                   {
                      // To be implemented in future

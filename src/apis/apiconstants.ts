@@ -17,3 +17,6 @@ export const unfollowUserAPIUrl = `${followApiRoute}/unfollowuser`;
 //People API constants
 export const peopleApiRoute = '/user';
 export const getUserDetailsAPIUrl = `${peopleApiRoute}/getUserDetails`;
+
+//Notification API constants
+export const notificationApiRoute = '/notification';

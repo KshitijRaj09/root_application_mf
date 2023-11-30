@@ -31,6 +31,9 @@ import { getUserInfoFromStorage } from "../../util";
 import { PageEnum } from "../../typesdeclarations/type";
 import useNotificationProvider from "../../customHook/useNotificationProvider";
 import { NotificationType, WindowEvents } from "@kshitijraj09/sharedlib_mf";
+import useNotificationStore from "../../zustand-config/notificationStore";
+import useSocketInit from "../../Socket/SocketInit";
+
 
 const drawerWidth = 200;
 type SideMenuBarPropsType = {
@@ -63,7 +66,14 @@ const styles = () => ({
    active: {
       background: "#f4f4f4",
    },
-
+   linkTab: {
+      "& span": {
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      width: "100px"
+      }
+   }
 });
 
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -74,19 +84,22 @@ const DrawerHeader = styled("div")(({ theme }) => ({
    justifyContent: "flex-start",
 }));
 
+const updateNotification: WindowEvents = 'updateNotification';
+
 export const SideMenuBar = ({
    children,
    setIsAuthenticated,
 }: SideMenuBarPropsType) => {
+   useSocketInit();
    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
    const location = useLocation();
    const { name: currentUserName, avatar: currentuserAvatar } = JSON.parse(getUserInfoFromStorage());
    const classes = styles();
-
    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-   const messageNotification = 'messageNotification' as WindowEvents.messageNotification;
-   const { outputStack: notificationStack } = useNotificationProvider<NotificationType>(messageNotification);
-   
+
+   useNotificationProvider<NotificationType>(updateNotification); //custom hook for notifications
+   const { notifications } = useNotificationStore(); //Zustand store
+
    const menuItems = [
       {
          text: PageEnum.Posts,
@@ -99,14 +112,14 @@ export const SideMenuBar = ({
          path: "/people",
       },
       {
-         text: PageEnum.Account,
+         text: `Hi, ${currentUserName}`,
          icon: <AccountCircleIcon />,
          path: "/account",
       },
       {
          text: PageEnum.Messenger,
          icon: (
-            <Badge color="primary" badgeContent={notificationStack.length}>
+            <Badge color="primary" badgeContent={notifications.length}>
                <TextsmsOutlinedIcon />
             </Badge>
          ),
@@ -189,8 +202,8 @@ export const SideMenuBar = ({
                            >
                            <ListItemIcon>{item.icon}</ListItemIcon>
                            <ListItemText
-                              primary={item.text}
-                                 sx={{ fontSize: "20px" }}
+                                 primary={item.text}
+                                 sx={classes.linkTab}
                            />
                         </ListItemButton>
                      )}

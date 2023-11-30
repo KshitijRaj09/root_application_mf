@@ -1,7 +1,8 @@
 import React, { memo, useEffect } from "react";
 import { Socket, io } from "socket.io-client";
 import { getUserInfoFromStorage } from "../util";
-import { WindowEvents } from "Sharedlib/eventservice";
+import { WindowEvents } from "@kshitijraj09/sharedlib_mf";
+import useNotificationStore from "../zustand-config/notificationStore";
 
 declare global {
    interface Window {
@@ -13,10 +14,10 @@ const SOCKETIOENDPOINT = process.env.APIBASEURL;
 let socket: Socket = io(SOCKETIOENDPOINT, {
    autoConnect: false
 });
-const eventName = 'messageNotification' as typeof WindowEvents.messageNotification;
-const SocketInit = () => {
+const eventName: WindowEvents = 'messageNotification';
+const useSocketInit = () => {
+   const { increaseNotifications , fetchNotifications } = useNotificationStore();
    const handleSocketConnection = () => {
-      console.log('socket init called');
       if (!socket.connected) {
          const userInfo = JSON.parse(getUserInfoFromStorage());
          socket.connect();
@@ -32,8 +33,9 @@ const SocketInit = () => {
 
    useEffect(() => {
       handleSocketConnection();
+      fetchNotifications();
       socket.on('message-notification', (notification) => {
-         console.log('hello notification', notification)
+         increaseNotifications(notification);
          import("Sharedlib/eventservice").
          then((event) => {
             setTimeout(() => event.default.fire(eventName, { detail: notification }), 100);     
@@ -46,7 +48,7 @@ const SocketInit = () => {
       }
    }, [])
 
-   return (<></>)
+   return {}
 }
 
-export const MemoizedSocketInit = memo(SocketInit);
+export default useSocketInit;

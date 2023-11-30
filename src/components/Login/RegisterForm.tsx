@@ -1,17 +1,16 @@
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Avatar from "@mui/material/Avatar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import CssBaseline from "@mui/material/CssBaseline";
-import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
+import {
+  Box, Container,
+  CssBaseline, Grid,
+  Link, TextField,
+  Typography, 
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { isUserIdExistPropType } from "../../typesdeclarations/type";
 import { EventEmitter } from "../../util";
 import { registerApi } from "./apis/registerApi";
+import { LoadingButton } from "@mui/lab";
 
 const styles = () => ({
   GridItem: {
@@ -50,6 +49,8 @@ export const RegisterForm = ({
     password: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     EventEmitter.subscribe("registrationfailed", (data: any) =>
       notifyErrorOnLogin(data?.response?.data?.errormessage)
@@ -82,6 +83,7 @@ export const RegisterForm = ({
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    setIsLoading(true);
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const formdata = {
@@ -92,11 +94,11 @@ export const RegisterForm = ({
     };
 
     const data = await registerApi(formdata);
+    setIsLoading(false);
   };
   return (
     <Container component="main">
       <CssBaseline />
-
       <Box
         sx={{
           marginTop: 8,
@@ -172,14 +174,16 @@ export const RegisterForm = ({
             </Grid>
 
             <Grid item sx={classes.GridItem}>
-              <Button
+              <LoadingButton
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                loading={isLoading}
+                loadingPosition="center"
               >
                 Sign Up
-              </Button>
+              </LoadingButton>
             </Grid>
           </Grid>
 

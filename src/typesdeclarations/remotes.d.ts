@@ -35,11 +35,10 @@ declare module "Sharedlib/theme" {
 }
 
 declare module "Sharedlib/eventservice" {
-   import { WindowEventService as windowEventService, WindowEvents as windowEvents, UserInfoType } from "@kshitijraj09/sharedlib_mf";
+   import { WindowEventService as windowEventService, UserInfoType } from "@kshitijraj09/sharedlib_mf";
    const WindowEventService: typeof windowEventService;
-   const WindowEvents: typeof windowEvents;
    const UserInfoType: UserInfoType;  
    export default WindowEventService;
-   export { WindowEvents, UserInfoType };
+   export { UserInfoType };
 }
  

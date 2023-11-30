@@ -11,6 +11,6 @@ export const loginApi = async (input: loginFormdataType) => {
     }
     catch (error) {
         console.log("error Login api", error);
-        EventEmitter.dispatch('loginfailed', error)
+        EventEmitter.dispatch('loginfailed', error);
     }
 }

@@ -1,3 +1,7 @@
+import {WindowEvents} from "@kshitijraj09/sharedlib_mf"
+import { getUserDetailsApi } from "./apis/getUserDetails";
+import useNotificationStore from "./zustand-config/notificationStore";
+
 type UserInfoType = {
   username: string;
   name: string;
@@ -29,7 +33,8 @@ export const dateFormatter = (
     let hour: number = date.getHours();
     let minutes: number = date.getMinutes();
 
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+      "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
     return isTimeStampRequired
         ? `${day} ${months[month]
@@ -82,6 +87,34 @@ export const checkNotificationStatus = (message: string, userInfo: { avatar: str
   else {
     alert("Notifications blocked. Please enable it in your browser.");
   }
+}
+
+export const getCurrentPage = () => {
+  const { pathname } = location;
+  const pathsplit = pathname.split('/')
+  return pathsplit[pathsplit.length - 1];
+}
+
+export const getUserDetailsHelper = async () => {
+  const eventName:WindowEvents = 'currentUser';
+  let userInfo = await getUserDetailsApi();
+  import("Sharedlib/eventservice").
+     then((event) => {
+        setTimeout(() => event.default.fire(eventName, { detail: userInfo }), 1000);      
+     }).catch(error => {
+        console.error('Error occured in event', error);
+     })
+}
+
+export const fireNotificationEvent = () => {
+  const notifications = useNotificationStore.getState().notifications;
+  const eventName:WindowEvents = 'messageNotification';
+  import("Sharedlib/eventservice").
+     then((event) => {
+        setTimeout(() => event.default.fire(eventName, { detail: notifications }), 100);      
+     }).catch(error => {
+        console.error('Error occured in event', error);
+     })
 }
 
 // const debounce = <Type,>(callback: Type) => {
