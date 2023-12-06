@@ -74,7 +74,7 @@ module.exports = {
       patterns: [
         {
           from: "src/**/*.png",
-          to:  "assets/favicon/[name][ext]"
+          to:  "./assets/favicon/[name][ext]"
         },
       ],
     }),
