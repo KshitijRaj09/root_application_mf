@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 const path = require("path");
 const Dotenv = require("dotenv-webpack");
 const { ModuleFederationPlugin } = require("webpack").container;
@@ -68,6 +69,14 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "index.html"),
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "src/**/*.png",
+          to:  "assets/favicon/[name][ext]"
+        },
+      ],
     }),
     new Dotenv({
       systemvars: true
