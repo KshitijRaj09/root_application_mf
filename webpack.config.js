@@ -73,7 +73,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {
-          from: "src/**/*.png",
+          from: "src/assets/**/*.*",
           to:  "./assets/favicon/[name][ext]"
         },
       ],
