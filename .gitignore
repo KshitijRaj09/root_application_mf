@@ -4,5 +4,5 @@ dist
 .env
 design.webp
 .npmrc
-
+.DS_Store
 *.logs
