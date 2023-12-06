@@ -23,15 +23,12 @@ const styles = () => ({
   },
 });
 
-function Copyright(props: any) {
+function Developer(props: any) {
   return (
     <Typography variant="body2" color="text.secondary" align="left" {...props}>
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
+      <Link color="inherit" href="https://kshitijraj.netlify.app/">
+        Click here for developer details.
+      </Link>
     </Typography>
   );
 }
@@ -199,7 +196,7 @@ export const RegisterForm = ({
           </Grid>
         </Box>
       </Box>
-      <Copyright sx={{ mt: 5 }} />
+      <Developer sx={{ mt: 5 }} />
     </Container>
   );
 };
